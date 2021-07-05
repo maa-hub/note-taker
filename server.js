@@ -16,7 +16,7 @@ app.use(express.static('public'));
 function createNote(body, notesArray) {
     const addNote = body;
     if (!Array.isArray(notesArray))
-        return false;
+    notesArray = [];
     
     if (notesArray.length === 0)
         notesArray.push(0);
@@ -34,7 +34,7 @@ function createNote(body, notesArray) {
   };
 
   function removeNote(id, notesArray) {
-    for (let i = 0; i <= notesArray.length; i++) {
+    for (let i = 0; i < notesArray.length; i++) {
         let note = notesArray[i];
 
         if (note.id == id) {
