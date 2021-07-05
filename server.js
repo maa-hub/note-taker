@@ -34,7 +34,7 @@ function createNote(body, notesArray) {
   };
 
   function removeNote(id, notesArray) {
-    for (let i = 0; i < notesArray.length; i++) {
+    for (let i = 0; i <= notesArray.length; i++) {
         let note = notesArray[i];
 
         if (note.id == id) {
