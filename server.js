@@ -21,7 +21,6 @@ function createNote(body, notesArray) {
     if (notesArray.length === 0)
         notesArray.push(0);
 
-    
     body.id = notesArray[0];
     notesArray[0]++;
 
