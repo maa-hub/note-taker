@@ -49,12 +49,7 @@ function createNote(body, notesArray) {
     }
 }
 
-  app.post('/api/notes', (req, res) => {
-      const addNote = createNote (req.body, notes);
-      res.json(addNote);
-  });
-
-  app.get('/api/notes', (req, res) => {
+app.get('/api/notes', (req, res) => {
     res.json(notes.slice(1));
 });
 
@@ -69,6 +64,12 @@ app.get('/notes', (req, res) => {
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, './public/index.html'));
 });
+
+  app.post('/api/notes', (req, res) => {
+      const addNote = createNote (req.body, notes);
+      res.json(addNote);
+  });
+
 
 app.delete('/api/notes/:id', (req, res) => {
     removeNote(req.params.id, notes);
