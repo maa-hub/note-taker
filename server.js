@@ -21,13 +21,22 @@ function createNote(body, notesArray) {
     if (notesArray.length === 0)
         notesArray.push(0);
 
+    
+    body.id = notesArray[0];
+    notesArray[0]++;
+
     notesArray.push(addNote);
     fs.writeFileSync(
       path.join(__dirname, './db/db.json'),
       JSON.stringify(notesArray, null, 2)
     );
     return addNote;
-  }
+  };
+
+  app.post('/api/notes', (req, res) => {
+      const addNote = createNote (req.body, notes);
+      res.json(addNote);
+  });
 
   app.get('/api/notes', (req, res) => {
     res.json(notes.slice(1));
